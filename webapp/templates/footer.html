@@ -1,0 +1,100 @@
+{% load static %}
+<!-- Bootstrap 5 CDN for styling and layout -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<div class="pre-footer">
+  <div class="container">
+    <h3 class="pre-footer-title">WEB PORTALS</h3>
+
+    <div id="portalCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner text-center">
+
+        <div class="carousel-item active">
+          <div class="d-flex justify-content-center gap-4 flex-wrap">
+            <a href="https://bhoonidhi.nrsc.gov.in/bhoonidhi/home.html" target="_blank">
+              <img src="{% static 'img/portal1.png' %}" class="portal-logo" alt="Bhoonidhi portal logo displayed among other web portal logos in a carousel, set against a clean and professional website footer environment">
+            </a>
+            <a href="https://bhoonidhi.nrsc.gov.in/bhoonidhi/home.html#vistaCard" target="_blank">
+              <img src="{% static 'img/portal2.png' %}" class="portal-logo" alt="Portal 2 logo displayed alongside other web portal logos in a carousel, set in a professional website footer environment">
+            </a>
+            <a href="https://bhuvan.nrsc.gov.in/ngmaps?mode=Hybrid" target="_blank">
+              <img src="{% static 'img/portal3.jpg' %}" class="portal-logo" alt="Portal 3 logo shown among a group of web portal logos in a carousel, presented in a clean and organized website footer">
+            </a>
+            <a href="https://ndem.nrsc.gov.in/" target="_blank">
+              <img src="{% static 'img/portal4.png' %}" class="portal-logo" alt="Portal 4 logo featured with other web portal logos in a carousel, within a modern and accessible website footer">
+            </a>
+            <a href="https://nices.nrsc.gov.in/" target="_blank">
+              <img src="{% static 'img/portal5.png' %}" class="portal-logo" alt="Portal 5 logo included in a carousel of web portal logos, set against a structured and user-friendly website footer">
+            </a>
+            </div>
+          </div>
+
+        <div class="carousel-item">
+            <div class="d-flex justify-content-center gap-4 flex-wrap">
+            <a href="https://bhuvan-panchayat3.nrsc.gov.in/" target="_blank">
+              <img src="{% static 'img/portal6.png' %}" class="portal-logo" alt="Portal 6 logo presented with other web portal logos in a carousel, in a welcoming and informative website footer">
+            </a>
+            <a href="https://indiawris.gov.in/wris/#/" target="_blank">
+              <img src="{% static 'img/portal7.png' %}" class="portal-logo" alt="Portal 7 logo displayed among web portal logos in a carousel, set in a clear and accessible website footer">
+            </a>
+            <!-- Add more portals if needed -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Carousel controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#portalCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bg-dark rounded-circle" aria-hidden="true"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#portalCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon bg-dark rounded-circle" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="main-footer">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-heading">SUPPORT</h5>
+                <ul class="footer-links">
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Site Map</a></li>
+                    <li><a href="#">Terms and Conditions</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-heading">ORGANISATION</h5>
+                <ul class="footer-links">
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Eprocurement</a></li>
+                    <li><a href="#">RTI</a></li>
+                    <li><a href="#">Disclaimer</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Tenders</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-heading">OTHERS</h5>
+                <ul class="footer-links">
+                    <li><a href="#">Vigilance Administration</a></li>
+                    <li><a href="#">Web Information Manager</a></li>
+                    <li><a href="https://gis.rajasthan.gov.in/">Rajastha GIS</a></li>
+                    <li><a href="#">CHSS Portal</a></li>
+                    <li><a href="https://www.nrsc.gov.in/ISROCentres">ISRO Centres</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-heading">Version 2.0</h5>
+                <p class="mb-2">Last Updated Date:</p>
+                <div class="date-box">11 July 2025</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="copyright-bar">
+    <div class="container">
+        SRSAC, DST. All Rights Reserved.
+    </div>
+</div>

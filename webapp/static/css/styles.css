@@ -1,0 +1,501 @@
+/* Variables for colors and common values */
+:root {
+    --primary-red: #c00;
+    --dark-grey: #333;
+    --medium-grey: #4a4a4a;
+    --light-grey-bg: #f4f4f4;
+    --border-color: #ddd;
+    --text-color-dark: #333;
+    --text-color-light: #fff;
+    --footer-text-color: #ccc;
+    --font-family-base: Arial, sans-serif;
+}
+
+/* General & Body Styles */
+body {
+    background-color: var(--light-grey-bg);
+    font-family: var(--font-family-base);
+    line-height: 1.6;
+    color: var(--text-color-dark);
+}
+
+.site-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+}
+
+/* Header Styles */
+.header-top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    padding: 10px 15px; /* Adjust padding for better spacing */
+    background-color: var(--text-color-light); /* Assuming a white or light background for the top bar */
+    border-bottom: 1px solid var(--border-color); /* Subtle separation */
+}
+
+.srsac-logo {
+    height: 70px; /* Base height for smaller screens */
+    width: auto;
+    margin-right: 15px;
+    display: block;
+    object-fit: contain;
+}
+
+@media (min-width: 768px) {
+    .srsac-logo {
+        height: 90px; /* Larger for medium screens and up */
+    }
+}
+
+.gov-identity {
+    text-align: center;
+    line-height: 1.3;
+    font-size: 0.9em;
+    color: var(--text-color-dark);
+    flex-grow: 1; /* Allows it to take available space */
+    padding: 0 10px; /* Add some horizontal padding */
+}
+
+.gov-identity span {
+    display: block; /* Ensures each line breaks */
+}
+
+.right-logos {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Spacing between logos */
+    margin-left: 15px; /* Separate from government identity text */
+}
+
+.right-logo {
+    height: 60px; /* Uniform height for all logos */
+    width: auto;
+    object-fit: contain;
+    display: block;
+    filter: grayscale(80%); /* Subtle grayscale */
+    transition: filter 0.3s ease; /* Smooth transition on hover */
+}
+
+.right-logo:hover {
+    filter: grayscale(0%); /* Color on hover */
+}
+
+@media (min-width: 992px) {
+    .right-logo {
+        height: 80px; /* Larger on desktops */
+    }
+    .right-logos {
+        gap: 25px;
+    }
+}
+
+/* Main Navigation Bar */
+.main-navbar {
+    background-color: var(--dark-grey);
+    padding: 0; /* Remove default padding */
+}
+
+.main-navbar .navbar-nav {
+    width: 100%; /* Ensure nav items take full width for alignment */
+    justify-content: space-around; /* Distribute items evenly */
+}
+
+.main-navbar .nav-link {
+    color: var(--text-color-light);
+    font-weight: bold;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    padding: 15px 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.main-navbar .nav-link:hover,
+.main-navbar .nav-item.active .nav-link {
+    background-color: var(--primary-red);
+    color: var(--text-color-light);
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Hero Carousel Styles */
+#heroCarousel .carousel-item {
+    height: 400px; /* Fixed height for consistency */
+    overflow: hidden;
+    background: #000; /* Fallback background */
+    display: flex; /* Use flex to center image vertically */
+    align-items: center;
+    justify-content: center;
+}
+
+#heroCarousel .carousel-item img {
+    width: 100%;
+    height: 100%; /* Changed to 100% to fill container */
+    object-fit: cover; /* Ensures image covers the area without distortion */
+}
+
+.carousel-caption h5 {
+    color: var(--text-color-light);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Adds readability */
+    transition: color 0.2s ease;
+}
+
+.carousel-caption h5:hover {
+    color: var(--primary-red);
+    cursor: pointer;
+}
+
+.custom-carousel-btn {
+    background-color: rgba(33, 37, 41, 0.7); /* Darker, slightly transparent */
+    width: 40px; /* Slightly larger for better clickability */
+    height: 40px;
+    border-radius: 50%;
+    border: none; /* No border */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.custom-carousel-btn:hover,
+.custom-carousel-btn:focus {
+    background-color: rgba(33, 37, 41, 0.9); /* More opaque on hover */
+    outline: none; /* Remove outline on focus for aesthetics */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 24px; /* Slightly larger icons */
+    height: 24px;
+    background-size: 100% 100%; /* Ensure icon fills the button */
+}
+/* Container for the entire sidebar box */
+.content-sidebar-box {
+    border: 1px solid var(--border-color); /* Light grey border */
+    border-radius: 5px; /* Slightly rounded corners */
+    overflow: hidden; /* Ensures the title's background doesn't bleed out */
+    margin-bottom: 30px; /* Space below the sidebar box */
+    background-color: var(--text-color-light); /* White background for the box content */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow for depth */
+}
+/* Page Content Styles (about.html, general content box) */
+.breadcrumb-item a {
+    text-decoration: none;
+    color: var(--primary-red);
+    transition: color 0.2s ease;
+}
+
+.breadcrumb-item a:hover {
+    color: var(--dark-grey);
+}
+
+.content-sidebar-box {
+    border: 1px solid var(--border-color);
+    border-radius: 5px; /* Slightly rounded corners for the box */
+    overflow: hidden; /* Ensures title background doesn't overflow */
+    margin-bottom: 30px; /* Space below the sidebar box */
+    background-color: var(--text-color-light); /* White background for the box */
+}
+
+.content-sidebar-title {
+    background-color: var(--dark-grey);
+    color: var(--text-color-light);
+    padding: 12px 15px; /* More vertical padding */
+    font-size: 1.1em; /* Slightly larger font */
+    font-weight: 600; /* Bolder */
+    text-align: center;
+    margin: 0; /* Remove negative margins if using overflow:hidden on parent */
+    border-bottom: 1px solid var(--primary-red); /* Red line below title */
+    text-transform: uppercase; /* Match navigation style */
+}
+
+.side-nav {
+    padding: 0;
+    margin: 0;
+    list-style: none; /* Ensure no default list style */
+}
+
+.side-nav .list-group-item {
+    border: none; /* Remove default Bootstrap border */
+    border-left: 4px solid transparent; /* For active state highlight */
+    padding: 12px 15px;
+    transition: background-color 0.2s ease, border-left-color 0.2s ease;
+}
+
+.side-nav .list-group-item a {
+    text-decoration: none;
+    color: var(--text-color-dark);
+    display: block; /* Make the whole area clickable */
+    transition: color 0.2s ease;
+}
+
+.side-nav .list-group-item:hover {
+    background-color: #e9ecef; /* Light grey hover */
+    border-left-color: var(--border-color);
+}
+
+.side-nav .list-group-item:hover a {
+    color: var(--primary-red); /* Red text on hover */
+}
+
+.side-nav .list-group-item.active {
+    background-color: #f0f0f0;
+    color: var(--text-color-dark);
+    border-left-color: var(--primary-red); /* Active state highlight */
+    font-weight: bold;
+    color: var(--text-color-dark); /* Keep text dark in active state */
+}
+
+.side-nav .list-group-item.active a {
+    color: var(--text-color-dark); /* Keep text dark in active state */
+}
+
+.page-title {
+    font-size: 2.2em; /* Larger title */
+    font-weight: 700; /* Bolder */
+    color: var(--text-color-dark);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    text-transform: uppercase; /* Match navigation style */
+}
+
+section h4 {
+    font-size: 1.5em; /* Consistent heading size */
+    color: var(--primary-red); /* Use primary red for section headings */
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+section p {
+    margin-bottom: 15px;
+    text-align: justify; /* Justify text for a cleaner look */
+}
+
+section ul {
+    list-style: disc; /* Default disc style for lists */
+    padding-left: 25px;
+    margin-bottom: 20px;
+}
+
+section ul li {
+    margin-bottom: 8px;
+}
+
+/* Footer Style */
+.pre-footer {
+    background-color: var(--medium-grey);
+    padding: 35px 0;
+    border-top: 5px solid var(--primary-red); /* Distinct top border */
+}
+
+.pre-footer-title {
+    color: var(--text-color-light);
+    text-align: center; /* Center align title in pre-footer */
+    font-weight: 700;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.portal-logo {
+    height: 90px; /* Slightly adjusted height */
+    width: auto;
+    border: 2px solid #ccc;
+    padding: 8px;
+    background-color: var(--text-color-light);
+    filter: grayscale(100%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+    border-radius: 4px;
+    display: block; /* Ensures proper centering in flex/grid context */
+    margin: 0 auto; /* Center individual logos if not in carousel */
+}
+
+.portal-logo:hover {
+    filter: grayscale(0%);
+    transform: scale(1.08); /* Slightly more prominent scale */
+}
+
+.portalCarousel .carousel-item {
+    display: flex;
+    justify-content: center; /* Center images in the carousel slide */
+    align-items: center;
+}
+
+.portalCarousel img {
+    height: 80px; /* Consistency for carousel images */
+    filter: grayscale(100%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.portalCarousel img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.08);
+}
+
+/* Adjust carousel control sizes for portal carousel if different */
+.portalCarousel .carousel-control-prev-icon,
+.portalCarousel .carousel-control-next-icon {
+    background-size: 30px 30px; /* Smaller controls for portal carousel */
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+.portalCarousel .carousel-control-prev-icon:hover,
+.portalCarousel .carousel-control-next-icon:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.main-footer {
+    background-color: var(--dark-grey);
+    color: var(--footer-text-color);
+    padding: 40px 0 20px 0; /* More padding at bottom */
+}
+
+.footer-heading {
+    color: var(--text-color-light);
+    font-weight: 700;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Subtle underline */
+    padding-bottom: 8px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li a {
+    color: var(--footer-text-color);
+    text-decoration: none;
+    display: block;
+    padding: 6px 0;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.footer-links li a:before {
+    content: '\203A\0020'; /* Unicode for single right-pointing angle quotation mark, followed by space */
+    font-family: sans-serif; /* Ensures consistent arrow style */
+    color: var(--primary-red);
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.footer-links li a:hover {
+    color: var(--text-color-light);
+    padding-left: 5px; /* Slight indentation on hover */
+}
+
+.date-box {
+    background-color: var(--text-color-light);
+    color: var(--text-color-dark);
+    padding: 12px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 4px; /* Soften corners */
+    font-size: 0.9em;
+}
+
+.copyright-bar {
+    background-color: #222;
+    color: #aaa;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 0.85em;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Separator */
+}
+
+/* Back to Top Button */
+#back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 999;
+    display: flex; /* Use flex for perfect icon centering */
+    align-items: center;
+    justify-content: center;
+    width: 48px; /* Larger touch target */
+    height: 48px;
+    background-color: var(--primary-red);
+    border: none;
+    color: var(--text-color-light);
+    font-size: 1.5rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#back-to-top:hover {
+    background-color: darken(var(--primary-red), 10%); /* This would require SASS/LESS or manual definition */
+    background-color: #a00; /* Manual darker shade */
+    transform: translateY(-3px); /* Slight lift effect */
+}
+
+/* Responsive Adjustments (General) */
+@media (max-width: 767.98px) {
+    .header-top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .gov-identity {
+        margin-top: 10px;
+        text-align: left;
+        padding: 0;
+    }
+
+    .right-logos {
+        margin-top: 10px;
+        margin-left: 0;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .main-navbar .navbar-nav {
+        flex-direction: column;
+    }
+
+    .main-navbar .nav-link {
+        text-align: center;
+        padding: 10px 15px;
+    }
+
+    .side-nav .list-group-item {
+        padding: 10px 12px;
+    }
+
+    .page-title {
+        font-size: 1.8em;
+    }
+
+    section h4 {
+        font-size: 1.3em;
+    }
+    .content-sidebar-box {
+        margin-bottom: 20px;
+    }
+    .content-sidebar-title {
+        padding: 10px 12px;
+        font-size: 1em;
+    }
+    .side-nav .list-group-item {
+        padding: 10px 12px;
+        font-size: 0.95em;
+    }
+}

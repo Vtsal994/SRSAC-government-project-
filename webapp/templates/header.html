@@ -1,0 +1,79 @@
+{% load static %}
+<div class="header-top-bar py-2 shadow-sm bg-white border-bottom">
+    <div class="container d-flex justify-content-between align-items-center">
+
+        <!-- Left Side: SRSAC Logo & Title -->
+        <div class="d-flex align-items-center">
+            <img src="{% static 'img/last-logo-srsac.png' %}" alt="SRSAC Logo" class="srsac-logo me-2">
+            <div>
+                <h5 class="mb-0 fw-bold">State Remote Sensing Application Centre</h5>
+                <small class="text-muted">
+                    Department of Science & Technology, Government of Rajasthan
+                </small>
+                <p class="mb-0 text-muted">
+                    <strong>(Pal Road, Milkman Colony Jodhpur, Rajasthan 342008)</strong>
+                </p>
+            </div>
+        </div>
+
+        <!-- Right Side: Azadi Logo & Emblem -->
+        <div class="d-flex align-items-center right-logos">
+            <a href="https://dst.rajasthan.gov.in/" target="_blank">
+                <img src="{% static 'img/DST_LOGO.png' %}" alt="DST Logo" class="right-logo mx-2">
+            </a>
+            <img src="{% static 'img/azadi_mahotsav_logo.png' %}" alt="Azadi Ka Amrit Mahotsav" class="right-logo mx-3" style="width: 100px; height: auto;">
+        </div>
+    </div>
+</div>
+
+<nav class="navbar navbar-expand-lg main-navbar">
+  <div class="container">
+    <a class="navbar-brand d-lg-none" href="#">SRSAC</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+      aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/">HOME</a>
+        </li>
+
+        <!-- About Us Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/about.html" id="aboutDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            ABOUT US
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+            <li><a class="dropdown-item" href="/about.html#intro">Introduction</a></li>
+            <li><a class="dropdown-item" href="/about.html#mandate">Mandates</a></li>
+            <li><a class="dropdown-item" href="/about.html#objectives">Objectives</a></li>
+            <li><a class="dropdown-item" href="/about.html#infra">Infrastructure</a></li>
+            <li><a class="dropdown-item" href="/about.html#achievements">Achievements</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">DATA PRODUCTS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">RESOURCES</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">SERVICES</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">R & D ACTIVITIES</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/applications.html">APPLICATIONS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">TRAINING & OUTREACH</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

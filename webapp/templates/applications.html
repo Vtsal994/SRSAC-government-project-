@@ -1,0 +1,580 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Department-wise Applications - SRSAC{% endblock %}</title>
+
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+  <div class="site-wrapper bg-light">
+    <header>
+      {% include 'header.html' %}
+    </header>
+    {% block content %}
+    <div class="container my-5">
+      <div class="row">
+        <!-- Sidebar Navigation for Departments -->
+        <aside class="col-md-3">
+          <div class="content-sidebar-box">
+            <div class="content-sidebar-title">Applications</div>
+            <ul class="list-group side-nav">
+              <li class="list-group-item active"><a href="#overview">Overview</a></li>
+              <li class="list-group-item"><a href="#agriculture">Agriculture/Horticulture Dept.</a></li>
+              <li class="list-group-item"><a href="#forest">Forest Department</a></li>
+              <li class="list-group-item"><a href="#environment">Environment Department</a></li>
+              <li class="list-group-item"><a href="#watershed">Watershed Dev. & Soil Cons. Dept.</a></li>
+              <li class="list-group-item"><a href="#water-resources">Water Resources Dept.</a></li>
+              <li class="list-group-item"><a href="#public-health">Public Health Engg. Dept.</a></li>
+              <li class="list-group-item"><a href="#ground-water">Ground Water Dept.</a></li>
+              <li class="list-group-item"><a href="#public-works">Public Works Dept.</a></li>
+              <li class="list-group-item"><a href="#rural-dev">Rural Dev. & Panchayati Raj Dept.</a></li>
+              <li class="list-group-item"><a href="#settlement">Settlement Dept./Board of Revenue</a></li>
+              <li class="list-group-item"><a href="#information-tech">Information Technology Dept.</a></li>
+              <li class="list-group-item"><a href="#urban-dev">Urban Dev. & Housing Dept.</a></li>
+              <li class="list-group-item"><a href="#mines-geology">Mines and Geology Dept.</a></li>
+              <li class="list-group-item"><a href="#education">Education Department</a></li>
+              <li class="list-group-item"><a href="#energy">Energy Department</a></li>
+              <li class="list-group-item"><a href="#election">Election Commission</a></li>
+              <li class="list-group-item"><a href="#planning">Planning Department</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <section class="col-md-9">
+          <h1 class="page-title">Department-wise Applications of Space Technology</h1>
+
+          <section id="overview">
+            <h4>Overview of Space Technology Applications in Rajasthan</h4>
+            <p>
+              Space technology, encompassing Remote Sensing (RS) and Geographic Information Systems (GIS), plays a crucial role in providing essential information for the sustainable management of resources and supporting various developmental activities across different departments in Rajasthan. [4, 10] It offers synoptic views of large areas, repetitive coverage, and multi-spectral data with variable resolution, making it an indispensable tool for planners and administrators. [10, 12]
+            </p>
+            <p>
+              The applications span multiple sectors, including agriculture, forestry, environment, land and water resources, rural and urban development, mining, transport, infrastructure, and more. [13] Common uses involve mapping for monitoring, tracing, measuring, assessment, identification, and modeling, contributing significantly to informed decision-making and efficient resource management. [13]
+            </p>
+          </section>
+
+          <section id="agriculture">
+            <h4>2.1 Agriculture/Horticulture Department</h4>
+            <p>
+              Remote sensing technology is extensively used in agriculture for monitoring seasonal patterns of crops, assessing productivity, and managing variable climatic conditions. [16] It provides timely information crucial for agricultural planning, drought declaration, and crop forecasting. [16] Applications include land use, crop type identification, yield prediction, soil type mapping, and estimation of crop water requirements, among others. [16]
+            </p>
+            <p>
+              SRSAC has been vital in assisting agricultural policy decisions by providing timely statistics on crop production and forecasting. [17] Key projects include the "Crop Acreage and Production Estimation (CAPE)" in collaboration with Space Applications Centre (SAC) and ISRO, which estimated wheat and mustard acreage across various districts from 1989 onwards. [17] The Centre also contributed to the Integrated Mission for Sustainable Development (IMSD) and projects for estimating crop residue burned areas and generating soil fertility maps across Rajasthan. [17] Currently, SRSAC supports the FASAL project by providing ground-based data for crop acreage estimation. [17]
+            </p>
+            <h5 class="table-heading">{{ agri_projects_table.title }}</h5>
+            {% if agri_projects_table.data %}
+            <div class="table-responsive mb-4">
+                <table class="table table-striped table-hover table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            {% for header in agri_projects_table.headers %}
+                            <th scope="col">{{ header }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in agri_projects_table.data %}
+                        <tr>
+                            {% for key, value in row.items %}
+                            <td>{{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="alert alert-info" role="alert">
+                No project data available for Agriculture/Horticulture Department.
+            </div>
+            {% endif %}
+          </section>
+
+          <section id="forest">
+            <h4>2.2 Forest Department</h4>
+            <p>
+              Space-based inputs have significantly contributed to the sustainable management of environmental resources, including forest cover mapping and monitoring, biodiversity characterization, and forest fire detection. [19]
+            </p>
+            <h5>Past Initiatives:</h5>
+            <ul>
+              <li>SRSAC created multiple versions of forest-related data based on the requirements of the State Forest & Environment Department. [19]</li>
+              <li>Forest areas mapping and density-wise classification for Bundi district were carried out during 1996-97. [19]</li>
+              <li>A District-level/State-level resource Atlas of Rajasthan was prepared in 2007. [19]</li>
+              <li>Approximately 1500 forest block maps were prepared in digital format using satellite data, and later, forest block mapping and classification were done at a 1:10000 scale using Cartosat-1 2.5-meter spatial resolution data. [19]</li>
+            </ul>
+            <h5>Current Work:</h5>
+            <p>
+              SRSAC Rajasthan is actively engaged in a project to analyze spatial changes in forest cover areas within the Jodhpur Division over the years. [19]
+            </p>
+            <h5>Future Vision:</h5>
+            <p>
+              The Centre aims to extend the methodology for estimating forest cover changes to the entire state of Rajasthan, building on the success of the Jodhpur Division project. [19]
+            </p>
+            <h5 class="table-heading">{{ forest_projects_table.title }}</h5>
+            {% if forest_projects_table.data %}
+            <div class="table-responsive mb-4">
+                <table class="table table-striped table-hover table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            {% for header in forest_projects_table.headers %}
+                            <th scope="col">{{ header }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in forest_projects_table.data %}
+                        <tr>
+                            {% for key, value in row.items %}
+                            <td>{{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="alert alert-info" role="alert">
+                No project data available for Forest Department.
+            </div>
+            {% endif %}
+          </section>
+
+          <section id="environment">
+            <h4>2.3 Environment Department</h4>
+            <p>
+              Geospatial technology is widely used globally for environmental data analysis and planning, enabling the derivation of various environmental parameters from remote sensing data. [21] It aids in preventing environmental hazards, monitoring, and mitigation, and is also used for generating environmental models, air pollution control, disaster management, and wastewater management. [21]
+            </p>
+            <h5>Past Initiatives:</h5>
+            <ul>
+              <li>SRSAC prepared inputs for environmental studies for Sanganer, submitted to the National Productivity Council (NPC), New Delhi. [21]</li>
+              <li>Basemap and LULC maps were prepared for the proposed Power Generating Plant at Mahi, Banswara, submitted to Nuclear Power Corporation of India Limited (NPCIL). [21]</li>
+              <li>Land Use Land Cover Analysis was conducted for areas around Kasnau-Matasukh Mines (Nagaur), Kayad Mines (Ajmer), and Barsingsar Mines (Bikaner). [21]</li>
+              <li>A green cover assessment project was completed for Chanderiya Lead Zinc Smelter plant (Chittorgarh) using very high-resolution satellite data. [21]</li>
+            </ul>
+            <h5>Current Work:</h5>
+            <p>
+              Wetlands mapping is an ongoing critical environmental project, with a state-wide wetland inventory being created in collaboration with ISRO, producing remote sensing-based mapping products for 100 selected wetlands in Rajasthan. [21] Following the successful green-cover assessment for Chanderiya Lead Zinc Smelter, Hindustan Zinc Ltd. has commissioned SRSAC to assess green-cover for seven more sites using very high-resolution satellite images. [21]
+            </p>
+            <h5>Future Vision:</h5>
+            <p>
+              SRSAC intends to apply geospatial technology for various environmental mapping tasks, especially with rising concerns about climate change and its impact on crop production. [22] The Centre has also proposed providing GIS inputs for building climate-resilient structures under the MGNREGS national-level project. [22]
+            </p>
+            <h5 class="table-heading">{{ environment_projects_table.title }}</h5>
+            {% if environment_projects_table.data %}
+            <div class="table-responsive mb-4">
+                <table class="table table-striped table-hover table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            {% for header in environment_projects_table.headers %}
+                            <th scope="col">{{ header }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in environment_projects_table.data %}
+                        <tr>
+                            {% for key, value in row.items %}
+                            <td>{{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="alert alert-info" role="alert">
+                No project data available for Environment Department.
+            </div>
+            {% endif %}
+          </section>
+
+          <!-- Add other sections similarly following the OCR content for relevant departments -->
+          <section id="watershed">
+            <h4>1.1 Watershed Development & Soil Conservation Department</h4>
+            <p>Remote sensing is instrumental in generating environmental indicators for delineating ridgelines, characterizing erosion-prone areas, and creating locale-specific action plans for land and water resources. [23]</p>
+            <h5>Past Initiatives:</h5>
+            <ul>
+                <li>Since 1985, efforts were made to map water harvesting structures (anicuts) and ravines across Rajasthan. [23]</li>
+                <li>Land-use-land-cover mapping was carried out at a scale of 1:2,50,000 in collaboration with the Department of Space, Government of India. [23]</li>
+                <li>Integrated resource surveys were conducted to combat drought, and a World Bank-assisted project in 1992 developed a GIS-based watershed management information system. [23]</li>
+                <li>In 2004, panchayat samiti-wise macro and micro watersheds were delineated for the entire state. [23]</li>
+                <li>Mapping of thematic layers under the Integrated Watershed Management Programme (IWMP) and preparation of a watershed atlas were completed in 2010 and 2011, respectively. [23]</li>
+                <li>An impact assessment of a watershed project for Seva Mandir, Udaipur, was conducted in 2016. [23]</li>
+            </ul>
+            <h5>Current Work:</h5>
+            <p>Currently, the Centre is monitoring Integrated Watershed Management Programme (IWMP) watersheds using geospatial technologies in collaboration with NRSC/ISRO/DoS, Govt. of India. [23]</p>
+            <h5 class="table-heading">{{ watershed_projects_table.title }}</h5>
+            {% if watershed_projects_table.data %}
+            <div class="table-responsive mb-4">
+                <table class="table table-striped table-hover table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            {% for header in watershed_projects_table.headers %}
+                            <th scope="col">{{ header }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in watershed_projects_table.data %}
+                        <tr>
+                            {% for key, value in row.items %}
+                            <td>{{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="alert alert-info" role="alert">
+                No project data available for Watershed Development & Soil Conservation Department.
+            </div>
+            {% endif %}
+          </section>
+
+          <section id="water-resources">
+            <h4>1.2 Water Resources Department</h4>
+            <p>Earth observation is a major focus area for water resources management, with remote sensing providing baseline information for effective planning, monitoring, and management. Services include mapping irrigation infrastructure, basin-level water resources assessment, and groundwater prospects and quality information. [25]</p>
+            <h5 class="table-heading">{{ water_resources_projects_table.title }}</h5>
+            {% if water_resources_projects_table.data %}
+            <div class="table-responsive mb-4">
+                <table class="table table-striped table-hover table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            {% for header in water_resources_projects_table.headers %}
+                            <th scope="col">{{ header }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in water_resources_projects_table.data %}
+                        <tr>
+                            {% for key, value in row.items %}
+                            <td>{{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="alert alert-info" role="alert">
+                No project data available for Water Resources Department.
+            </div>
+            {% endif %}
+          </section>
+
+          <section id="public-health">
+            <h4>1.3 Public Health Engineering Department</h4>
+            <p>Remote sensing technology is effective for monitoring and conserving surface water bodies, with satellite-derived parameters used to re-assess basin-wise water resources and provide fortnightly surface water spread data. [26]</p>
+            <h5 class="table-heading">{{ public_health_projects_table.title }}</h5>
+            {% if public_health_projects_table.data %}
+            <div class="table-responsive mb-4">
+                <table class="table table-striped table-hover table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            {% for header in public_health_projects_table.headers %}
+                            <th scope="col">{{ header }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in public_health_projects_table.data %}
+                        <tr>
+                            {% for key, value in row.items %}
+                            <td>{{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="alert alert-info" role="alert">
+                No project data available for Public Health Engineering Department.
+            </div>
+            {% endif %}
+          </section>
+
+          <section id="ground-water">
+            <h4>1.4 Ground Water Department</h4>
+            <p>ISRO has developed a comprehensive nationwide scientific database of prospective groundwater resources, accessible via the Bhuvan Bhujal portal. This portal provides critical insights for site selection for drilling and planning groundwater recharge structures, enhancing drinking water strategies. [27]</p>
+            <h5 class="table-heading">{{ ground_water_projects_table.title }}</h5>
+            {% if ground_water_projects_table.data %}
+            <div class="table-responsive mb-4">
+                <table class="table table-striped table-hover table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            {% for header in ground_water_projects_table.headers %}
+                            <th scope="col">{{ header }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in ground_water_projects_table.data %}
+                        <tr>
+                            {% for key, value in row.items %}
+                            <td>{{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="alert alert-info" role="alert">
+                No project data available for Ground Water Department.
+            </div>
+            {% endif %}
+          </section>
+
+          <section id="public-works">
+            <h4>1.5 Public Works Department</h4>
+            <p>Geoinformatics supports effective planning, decision-making, and monitoring of the PMGSY scheme. NRSC, ISRO, has a national project for generating a geospatial database of all PMGSY roads using high-resolution satellite imagery (HRSI). [28]</p>
+            <h5 class="table-heading">{{ public_works_projects_table.title }}</h5>
+            {% if public_works_projects_table.data %}
+            <div class="table-responsive mb-4">
+                <table class="table table-striped table-hover table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            {% for header in public_works_projects_table.headers %}
+                            <th scope="col">{{ header }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in public_works_projects_table.data %}
+                        <tr>
+                            {% for key, value in row.items %}
+                            <td>{{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="alert alert-info" role="alert">
+                No project data available for Public Works Department.
+            </div>
+            {% endif %}
+          </section>
+
+          <section id="rural-dev">
+            <h4>1.6 Rural Development and Panchayati Raj Department</h4>
+            <p>Space-based information supports decentralized developmental planning, aligned with the 73rd Constitutional Amendment Act. Thematic databases on land cover, soil, geomorphology, wastelands, and water resources are provided through ISRO's Bhuvan Geo-Portal. Satellite imagery enables monitoring and evaluation of development schemes. [28]</p>
+            <h5 class="table-heading">{{ rural_dev_projects_table.title }}</h5>
+            {% if rural_dev_projects_table.data %}
+            <div class="table-responsive mb-4">
+                <table class="table table-striped table-hover table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            {% for header in rural_dev_projects_table.headers %}
+                            <th scope="col">{{ header }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in rural_dev_projects_table.data %}
+                        <tr>
+                            {% for key, value in row.items %}
+                            <td>{{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="alert alert-info" role="alert">
+                No project data available for Rural Development and Panchayati Raj Department.
+            </div>
+            {% endif %}
+          </section>
+
+          <section id="settlement">
+            <h4>1.7 Settlement Department/Board of Revenue</h4>
+            <p>The Board of Revenue, Government of Rajasthan, initiated a project for "Geo-referencing & Mosaicking of Digitized Cadastral Maps using High-Resolution Satellite Data" to create a georeferenced vector-data catalog of individual Khasra boundaries. [30]</p>
+            <h5 class="table-heading">{{ settlement_projects_table.title }}</h5>
+            {% if settlement_projects_table.data %}
+            <div class="table-responsive mb-4">
+                <table class="table table-striped table-hover table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            {% for header in settlement_projects_table.headers %}
+                            <th scope="col">{{ header }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in settlement_projects_table.data %}
+                        <tr>
+                            {% for key, value in row.items %}
+                            <td>{{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="alert alert-info" role="alert">
+                No project data available for Settlement Department/Board of Revenue.
+            </div>
+            {% endif %}
+          </section>
+
+          <section id="information-tech">
+            <h4>1.8 Department of Information Technology</h4>
+            <p>Remote sensing/GIS technology, combined with information technology, has enabled the transition from hard copy maps to web-enabled data dissemination. This facilitates single-window access to geospatial databases for user departments. [30]</p>
+            <!-- No table reference in OCR for this section -->
+          </section>
+
+          <section id="urban-dev">
+            <h4>1.9 Urban Development & Housing Department</h4>
+            <p>Urban Remote Sensing provides an evidence-based platform for understanding urban issues and formulating policies for sustainable urban systems, with cities being economic growth focal points. [30]</p>
+            <h5 class="table-heading">{{ urban_dev_projects_table.title }}</h5>
+            {% if urban_dev_projects_table.data %}
+            <div class="table-responsive mb-4">
+                <table class="table table-striped table-hover table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            {% for header in urban_dev_projects_table.headers %}
+                            <th scope="col">{{ header }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in urban_dev_projects_table.data %}
+                        <tr>
+                            {% for key, value in row.items %}
+                            <td>{{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="alert alert-info" role="alert">
+                No project data available for Urban Development & Housing Department.
+            </div>
+            {% endif %}
+          </section>
+
+          <section id="mines-geology">
+            <h4>1.10 Mines and Geology Department</h4>
+            <p>Space-based inputs are crucial for geological and geomorphological mapping, mineral exploration, and monitoring mining activities. Services include geomorphological and lineament maps, geological input for engineering projects, and mineral information systems. [32]</p>
+            <h5 class="table-heading">{{ mines_geology_projects_table.title }}</h5>
+            {% if mines_geology_projects_table.data %}
+            <div class="table-responsive mb-4">
+                <table class="table table-striped table-hover table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            {% for header in mines_geology_projects_table.headers %}
+                            <th scope="col">{{ header }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in mines_geology_projects_table.data %}
+                        <tr>
+                            {% for key, value in row.items %}
+                            <td>{{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="alert alert-info" role="alert">
+                No project data available for Mines and Geology Department.
+            </div>
+            {% endif %}
+          </section>
+
+          <section id="education">
+            <h4>1.11 Education Department</h4>
+            <p>The Centre has mapped approximately 1.20 lakh school locations across Rajasthan with associated attribute data. This data helps identify gap areas to strengthen school education. [32]</p>
+            <!-- No table reference in OCR for this section -->
+          </section>
+
+          <section id="energy">
+            <h4>1.12 Energy Department</h4>
+            <p>Energy is a key growth indicator for any state. Geospatial support helps in optimally positioning solar and wind energy stations, promoting non-conventional energy sources like sun, wind, and biomass. [33]</p>
+            <!-- No table reference in OCR for this section -->
+          </section>
+
+          <section id="election">
+            <h4>1.13 Election Commission</h4>
+            <p>SRSAC has been instrumental in creating and maintaining the election database, including Assembly and Parliamentary constituency-wise maps for the entire State. [33]</p>
+            <!-- No table reference in OCR for this section -->
+          </section>
+
+          <section id="planning">
+            <h4>1.14 Planning Department</h4>
+            <p>Space-based information and geospatial analysis tools support various infrastructure-related applications such as urban and regional planning, route alignment (road, rail, oil/gas pipeline), site-suitability analysis (hydroelectric projects, new townships), environmental impact assessment, and harnessing renewable energy. [33]</p>
+            <h5 class="table-heading">{{ planning_projects_table.title }}</h5>
+            {% if planning_projects_table.data %}
+            <div class="table-responsive mb-4">
+                <table class="table table-striped table-hover table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            {% for header in planning_projects_table.headers %}
+                            <th scope="col">{{ header }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in planning_projects_table.data %}
+                        <tr>
+                            {% for key, value in row.items %}
+                            <td>{{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="alert alert-info" role="alert">
+                No project data available for Planning Department.
+            </div>
+            {% endif %}
+          </section>
+
+        </section>
+      </div>
+    </div>
+    {% endblock %}
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 pt-4 pb-3">
+      {% include 'footer.html' %}
+    </footer>
+    </main>
+
+    <!-- Back to Top -->
+    <a href="#" id="back-to-top" class="btn btn-primary rounded-circle shadow position-fixed"
+      style="bottom:2rem;right:2rem;z-index:999;" title="Back to Top">
+      <i class="bi bi-arrow-up"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+  </div>
+</body>
+
+</html>
